@@ -3,24 +3,23 @@ package Prog1Lab3;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class Birthday{
 
     public static void main(String[] args){
 
         //
-        DateFormat date = new SimpleDateFormat("YYYY-MM-DD", Locale.ENGLISH);
+        DateFormat date = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         Scanner sc = new Scanner(System.in);
-        Date birthday = new Date();
+        Date bday = new Date();
         Date today = new Date();
         double time;
         String in;
         
         //
         System.out.println("--------BIRTHDAY FORMAT--------");
-        System.out.println("This program asks you for your birthday amd prints it out in the 'YYYY-MM-DD' format");
+        System.out.println("This program asks you for your birthday and prints it out in the 'YYYY-MM-DD' format");
         System.out.print("When is your birthday?: ");
         in = sc.nextLine();
 
@@ -32,17 +31,17 @@ public class Birthday{
         }
         
         //
-        birthday.setYear(today.getYear());
+        bday.setYear(today.getYear());
 
         //
         if (bday.before(today)){
-            time = today.getTime() - birthday.getTime();
-            time = time / (1000*60*60*24);
-            System.out.printf("Your birthday was %.0f days ago", time);
+            time = today.getTime() - bday.getTime();
+            time = time / (1000 * 60 * 60 * 24);
+            System.out.printf("Aww, sorry but your birthday was %.0f days ago", time);
         } else {
-            time = birthday.getTime() = today.getTime();
-            time = time / (1000*60*60*24);
-            System.out.printf("Your birthday is in %.0f days", time); 
+            time = bday.getTime() - today.getTime();
+            time = time / (1000 * 60 * 60 * 24);
+            System.out.printf("In %.0f days, you will experience your birthday!", time); 
         }
     
     }
